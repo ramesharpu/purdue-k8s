@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: depl
+  namespace: default
+  labels:
+    app: depl
+  annotations:
+    deployment.kubernetes.io/revision: '1'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: depl
+  template:
+    metadata:
+      labels:
+        app: depl
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
